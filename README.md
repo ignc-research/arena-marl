@@ -1,19 +1,19 @@
 # IROS21 information
-To test the code and reproduce the experiments, follow the installation steps in [Installation.md](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/Installation.md). Afterwards, follow the steps in [Evaluations.md](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/Evaluations.md).
+To test the code and reproduce the experiments, follow the installation steps in [Installation.md](docs/Installation.md). Afterwards, follow the steps in [Evaluations.md](/docs/Evaluations.md).
 
-To test the different **Waypoint Generators**, follow the steps in [waypoint_eval.md](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/eval_28032021.md)
+To test the different **Waypoint Generators**, follow the steps in [waypoint_eval.md](docs/eval_28032021.md)
 
-**DRL agents** are located in the [agents folder](https://github.com/ignc-research/arena-rosnav/tree/local_planner_subgoalmode/arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/agents).
+**DRL agents** are located in the [agents folder](https://github.com/ignc-research/arena-marl/tree/main/arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/agents).
 
-# Arena-Rosnav
-A flexible, high-performance 2D simulator with configurable agents, multiple sensors, and benchmark scenarios for testing robotic navigation. 
+# Arena-MARL
+A flexible, high-performance 2D simulator with configurable agents, multiple sensors, and benchmark scenarios for testing robotic navigation in multi-agent settings. 
 
-Arena-Rosnav uses Flatland as the core simulator and is a modular high-level library for end-to-end experiments in embodied AI -- defining embodied AI tasks (e.g. navigation, obstacle avoidance, behavior cloning), training agents (via imitation or reinforcement learning, or no learning at all using conventional approaches like DWA, TEB or MPC), and benchmarking their performance on the defined tasks using standard metrics.
+Arena-MARL uses Flatland as the core simulator and is a modular high-level library for end-to-end experiments in embodied AI -- defining embodied AI tasks (e.g. navigation, obstacle avoidance, behavior cloning), training agents (via imitation or reinforcement learning, or no learning at all using conventional approaches like DWA, TEB or MPC), and benchmarking their performance on the defined tasks using standard metrics.
 
 
-|![](/img/stage0.gif) | ![](/img/stage1.gif) |
+|![](img/stage0.gif) | ![](img/stage1.gif) |
 |:--:| :--:| 
-| *Training Stage* | *Deployment Stage* |
+| *Before Training* | *After Training* |
 
 
 ## What is this repository for?
@@ -28,7 +28,7 @@ Train DRL agents on ROS compatible simulations for autonomous navigation in high
 * Modular structure for extension of new functionalities and approaches
 
 # Start Guide
-We recommend starting with the [start guide](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/guide.md) which contains all information you need to know to start off with this project including installation on **Linux and Windows** as well as tutorials to start with. 
+We recommend starting with the [start guide](docs/guide.md) which contains all information you need to know to start off with this project including installation on **Linux and Windows** as well as tutorials to start with. 
 
 * For Mac, please refer to our [Docker](docs/Docker.md).
 
@@ -52,3 +52,5 @@ To create complex, collaborative scenarios for training and/or evaluation purpos
 * Flatland: http://flatland-simulator.readthedocs.io
 * ROS navigation stack: http://wiki.ros.org/navigation
 * Pedsim: https://github.com/srl-freiburg/pedsim_ros
+* Pettingzoo: https://github.com/Farama-Foundation/PettingZoo
+* Supersuit: https://github.com/Farama-Foundation/SuperSuit
