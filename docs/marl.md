@@ -28,7 +28,7 @@ In order to be compatible with existing APIs which are mainly designed for SARL 
 
 At the beginning stands the MARL environment. Pettingzoo offers two different API designs at this point. The first option is to model ones environment as a Agent Environment Cycle (AEC). This idiom was introduced by Terry et. al. [1] in 2020 and describes the MARL problem as a sequential and turn-based game. Each agent observes the current environment, computes an action and executes that action. Only then, the next agent starts his turn and observes the new state of the environment in turn. Terry et. al. argue that this structure improves the predictability of the environment by more closely resembling the implementational details. Many real situations and setups can be approximated using this idiom, but there are just as many situations where a strictly sequential ordering of the agents may not represent the underlying situation accuratly enough. Cooperative navigation is one such example since service robots can not rely on a global ordering of actions. Therefore Pettingzoo offers a second API for MARL. The Parallel API allows agents to observe, compute actions and act - all at the same time. Since it models cooperative navigation better, we chose the Parallel API for implementation in arena-rosnav.
 
-Once you implemented your environment in Pettingzoo and tested it using the appropriate environment tests for compliance with the API, the next step is creating a connection to SB3. For this purpose Pettingzoo created a separate library of useful wrappers called Supersuit. The notion of a wrapper is the same as in OpenAI gym. These functions wrap an environment and modify input or output of that environment while still retaining the API. This makes it possible to mix and match different wrappers in order to customize your environment.
+Once you implemented your environment in Pettingzoo and tested it using the appropriate environment tests for compliance with the API, the next step is creating a connection to SB3. For this purpose Pettingzoo created a separate library of useful wrappers called Supersuit. The notion of a wrapper is the same as in OpenAI gym. These functions wrap an environment and modify input or output of that environment while still retaining the API. This makes it possible to mix and match different wrappers in order to customize your environment. Using the existing Supersuit wrappers enables the usage of SB3 models out-of-the-box. For an example hot to achieve this, please refer to the code [here](arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/scripts/training/train_marl_agent.py)
 
 ###
 
@@ -43,3 +43,7 @@ Once you implemented your environment in Pettingzoo and tested it using the appr
 ## Sources and Additional information
 
 [1] https://arxiv.org/abs/2009.13051
+
+[Environment documentation] https://ignc-research.github.io/arena-marl/arena_local_planner_drl/rl_agent/
+
+[Scripts documentation] https://ignc-research.github.io/arena-marl/arena_local_planner_drl/scripts/
