@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>scripts.deployment.run_agent API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>scripts.deployment.run_agent</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import os
+import sys
+import rospy
+import rospkg
+import json
+import numpy as np
+import time
+import warnings
+
+from stable_baselines3 import PPO
+from stable_baselines3.common.vec_env import SubprocVecEnv, DummyVecEnv, VecNormalize
+from stable_baselines3.common.monitor import Monitor
+from stable_baselines3.common.evaluation import evaluate_policy
+
+from rl_agent.envs.flatland_gym_env import FlatlandEnv
+from task_generator.task_generator.tasks import StopReset
+from tools.argsparser import parse_run_agent_args
+from tools.train_agent_utils import load_hyperparameters_json, print_hyperparameters
+
+### AGENT LIST ###
+AGENTS = [
+    &#34;AGENT_1_2021_04_02__22_03&#34;,
+    &#34;AGENT_2_2021_03_30__23_10&#34;,
+    &#34;AGENT_3_2021_04_01__08_06&#34;,
+    &#34;AGENT_4_2021_04_02__01_07&#34;,
+    &#34;AGENT_5_2021_03_31__18_52&#34;,
+    &#34;AGENT_6_2021_04_04__02_12&#34;,
+    &#34;AGENT_7_2021_04_06__07_00&#34;,
+    &#34;AGENT_8_2021_04_05__22_11&#34;,
+    &#34;AGENT_9_2021_04_04__11_09&#34;,
+    &#34;AGENT_10_2021_04_03__16_57&#34;,
+    &#34;AGENT_11_2021_04_14__20_13&#34;,
+    &#34;AGENT_12_2021_04_05__12_08&#34;,
+    &#34;AGENT_13_2021_04_04__18_04&#34;,
+    &#34;AGENT_14_2021_04_07__01_17&#34;,
+    &#34;AGENT_15_2021_04_08__01_27&#34;,
+    &#34;AGENT_16_2021_04_09__22_24&#34;,
+    &#34;AGENT_17_2021_04_10__15_36&#34;,
+    &#34;AGENT_18_2021_04_11__13_54&#34;,
+    &#34;AGENT_19_2021_04_12__13_17&#34;,
+]
+
+
+def get_paths(args: dict, AGENT: str):
+    dir = rospkg.RosPack().get_path(&#34;arena_local_planner_drl&#34;)
+    PATHS = {
+        &#34;model&#34;: os.path.join(dir, &#34;agents&#34;, AGENT),
+        &#34;vecnorm&#34;: os.path.join(dir, &#34;agents&#34;, AGENT, &#34;vec_normalize.pkl&#34;),
+        &#34;robot_setting&#34;: os.path.join(
+            rospkg.RosPack().get_path(&#34;simulator_setup&#34;), &#34;robot&#34;, &#34;myrobot.model.yaml&#34;
+        ),
+        &#34;robot_as&#34;: os.path.join(dir, &#34;configs&#34;, &#34;default_settings.yaml&#34;),
+        &#34;scenario&#34;: os.path.join(
+            rospkg.RosPack().get_path(&#34;simulator_setup&#34;),
+            &#34;scenarios&#34;,
+            args.scenario + &#34;.json&#34;,
+        ),
+        &#34;curriculum&#34;: os.path.join(
+            dir, &#34;configs&#34;, &#34;training_curriculum_map1small.yaml&#34;
+        ),
+        &#34;log&#34;: os.path.join(dir, &#34;evaluation_logs&#34;, AGENT),
+    }
+    if args.log and not os.path.exists(PATHS[&#34;log&#34;]):
+        os.makedirs(PATHS[&#34;log&#34;])
+    return PATHS
+
+
+def make_env(
+    with_ns: bool, PATHS: dict, PARAMS: dict, log: bool = False, max_steps: int = 1000
+):
+    &#34;&#34;&#34;
+    Utility function for the evaluation environment.
+
+    :param params: (dict) hyperparameters of agent to be trained
+    :param PATHS: (dict) script relevant paths
+    :param log: (bool) to differentiate between train and eval env
+    :param max_steps: (int) number of steps before the episode is stopped
+    :return: (Callable)
+    &#34;&#34;&#34;
+
+    def _init():
+        ns = f&#34;eval_sim&#34; if with_ns else &#34;&#34;
+
+        env = FlatlandEnv(
+            ns,
+            PARAMS[&#34;reward_fnc&#34;],
+            PARAMS[&#34;discrete_action_space&#34;],
+            goal_radius=0.05,
+            max_steps_per_episode=max_steps,
+            train_mode=False,
+            task_mode=&#34;scenario&#34;,
+            PATHS=PATHS,
+            curr_stage=4,
+            extended_eval=True,
+        )
+        if log:
+            # eval env
+            env = Monitor(
+                env,
+                PATHS[&#34;log&#34;],
+                False,
+                info_keywords=(
+                    &#34;collisions&#34;,
+                    &#34;distance_travelled&#34;,
+                    &#34;time_safe_dist&#34;,
+                    &#34;time&#34;,
+                    &#34;done_reason&#34;,
+                    &#34;is_success&#34;,
+                ),
+            )
+        return env
+
+    return _init
+
+
+if __name__ == &#34;__main__&#34;:
+    args, _ = parse_run_agent_args()
+
+    if args.load:
+        AGENTS = [args.load]
+    assert len(AGENTS) &gt; 0, &#34;No agent name was given for evaluation&#34;
+
+    ros_params = rospy.get_param_names()
+    ns_for_nodes = &#34;/single_env&#34; not in ros_params
+
+    start = time.time()
+    while len(AGENTS) != 0:
+        AGENT = AGENTS.pop(0)
+        print(f&#34;START RUNNING AGENT:    {AGENT}&#34;)
+        PATHS = get_paths(args, AGENT)
+
+        assert os.path.isfile(os.path.join(PATHS[&#34;model&#34;], &#34;best_model.zip&#34;)), (
+            &#34;No model file found in %s&#34; % PATHS[&#34;model&#34;]
+        )
+        assert os.path.isfile(PATHS[&#34;scenario&#34;]), (
+            &#34;No scenario file named %s&#34; % PATHS[&#34;scenario&#34;]
+        )
+
+        PARAMS = load_hyperparameters_json(PATHS)
+        print_hyperparameters(PARAMS)
+
+        env = DummyVecEnv(
+            [make_env(ns_for_nodes, PATHS, PARAMS, args.log, args.max_steps)]
+        )
+        if PARAMS[&#34;normalize&#34;]:
+            if not os.path.isfile(PATHS[&#34;vecnorm&#34;]):
+                # without it agent performance will be strongly altered
+                warnings.warn(
+                    f&#34;Couldn&#39;t find VecNormalize pickle for {PATHS[&#39;model&#39;].split(&#39;/&#39;)[-1]}, going to skip this model&#34;
+                )
+                continue
+
+            env = VecNormalize.load(PATHS[&#34;vecnorm&#34;], env)
+
+        # load agent
+        agent = PPO.load(os.path.join(PATHS[&#34;model&#34;], &#34;best_model.zip&#34;), env)
+
+        try:
+            evaluate_policy(
+                model=agent, env=env, n_eval_episodes=args.num_eps, deterministic=True
+            )
+        except StopReset:
+            pass
+
+    time = round(time.time() - start)
+    print(f&#34;Time passed:    {time}s&#34;)
+    print(&#34;EVALUATION DONE!&#34;)
+    sys.exit()
+
+    # env.reset()
+    # first_obs = True
+
+    # # iterate through each scenario max_repeat times
+    # while True:
+    #     if first_obs:
+    #         # send action &#39;stand still&#39; in order to get first obs
+    #         if params[&#39;discrete_action_space&#39;]:
+    #             obs, rewards, dones, info = env.step([6])
+    #         else:
+    #             obs, rewards, dones, info = env.step([[0.0, 0.0]])
+    #         first_obs = False
+    #         cum_reward = 0.0
+
+    #     # timer = time.time()
+    #     action, _ = agent.predict(obs, deterministic=True)
+    #     # print(f&#34;Action predict time: {(time.time()-timer)*2.5} (sim time)&#34;)
+
+    #     # clip action
+    #     if not params[&#39;discrete_action_space&#39;]:
+    #         action = np.maximum(
+    #             np.minimum(agent.action_space.high, action), agent.action_space.low)
+
+    #     # apply action
+    #     obs, rewards, done, info = env.step(action)
+
+    #     cum_reward += rewards
+
+    #     if done:
+    #         if args.verbose == &#39;1&#39;:
+    #             if info[0][&#39;done_reason&#39;] == 0:
+    #                 done_reason = &#34;exceeded max steps&#34;
+    #             elif info[0][&#39;done_reason&#39;] == 1:
+    #                 done_reason = &#34;collision&#34;
+    #             else:
+    #                 done_reason = &#34;goal reached&#34;
+
+    #             print(&#34;Episode finished with reward of %f (finish reason: %s)&#34;% (cum_reward, done_reason))
+    #         env.reset()
+    #         first_obs = True
+
+    #     time.sleep(0.001)
+    #     if rospy.is_shutdown():
+    #         print(&#39;shutdown&#39;)
+    #         break</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="scripts.deployment.run_agent.get_paths"><code class="name flex">
+<span>def <span class="ident">get_paths</span></span>(<span>args: dict, AGENT: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_paths(args: dict, AGENT: str):
+    dir = rospkg.RosPack().get_path(&#34;arena_local_planner_drl&#34;)
+    PATHS = {
+        &#34;model&#34;: os.path.join(dir, &#34;agents&#34;, AGENT),
+        &#34;vecnorm&#34;: os.path.join(dir, &#34;agents&#34;, AGENT, &#34;vec_normalize.pkl&#34;),
+        &#34;robot_setting&#34;: os.path.join(
+            rospkg.RosPack().get_path(&#34;simulator_setup&#34;), &#34;robot&#34;, &#34;myrobot.model.yaml&#34;
+        ),
+        &#34;robot_as&#34;: os.path.join(dir, &#34;configs&#34;, &#34;default_settings.yaml&#34;),
+        &#34;scenario&#34;: os.path.join(
+            rospkg.RosPack().get_path(&#34;simulator_setup&#34;),
+            &#34;scenarios&#34;,
+            args.scenario + &#34;.json&#34;,
+        ),
+        &#34;curriculum&#34;: os.path.join(
+            dir, &#34;configs&#34;, &#34;training_curriculum_map1small.yaml&#34;
+        ),
+        &#34;log&#34;: os.path.join(dir, &#34;evaluation_logs&#34;, AGENT),
+    }
+    if args.log and not os.path.exists(PATHS[&#34;log&#34;]):
+        os.makedirs(PATHS[&#34;log&#34;])
+    return PATHS</code></pre>
+</details>
+</dd>
+<dt id="scripts.deployment.run_agent.make_env"><code class="name flex">
+<span>def <span class="ident">make_env</span></span>(<span>with_ns: bool, PATHS: dict, PARAMS: dict, log: bool = False, max_steps: int = 1000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Utility function for the evaluation environment.</p>
+<p>:param params: (dict) hyperparameters of agent to be trained
+:param PATHS: (dict) script relevant paths
+:param log: (bool) to differentiate between train and eval env
+:param max_steps: (int) number of steps before the episode is stopped
+:return: (Callable)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_env(
+    with_ns: bool, PATHS: dict, PARAMS: dict, log: bool = False, max_steps: int = 1000
+):
+    &#34;&#34;&#34;
+    Utility function for the evaluation environment.
+
+    :param params: (dict) hyperparameters of agent to be trained
+    :param PATHS: (dict) script relevant paths
+    :param log: (bool) to differentiate between train and eval env
+    :param max_steps: (int) number of steps before the episode is stopped
+    :return: (Callable)
+    &#34;&#34;&#34;
+
+    def _init():
+        ns = f&#34;eval_sim&#34; if with_ns else &#34;&#34;
+
+        env = FlatlandEnv(
+            ns,
+            PARAMS[&#34;reward_fnc&#34;],
+            PARAMS[&#34;discrete_action_space&#34;],
+            goal_radius=0.05,
+            max_steps_per_episode=max_steps,
+            train_mode=False,
+            task_mode=&#34;scenario&#34;,
+            PATHS=PATHS,
+            curr_stage=4,
+            extended_eval=True,
+        )
+        if log:
+            # eval env
+            env = Monitor(
+                env,
+                PATHS[&#34;log&#34;],
+                False,
+                info_keywords=(
+                    &#34;collisions&#34;,
+                    &#34;distance_travelled&#34;,
+                    &#34;time_safe_dist&#34;,
+                    &#34;time&#34;,
+                    &#34;done_reason&#34;,
+                    &#34;is_success&#34;,
+                ),
+            )
+        return env
+
+    return _init</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="scripts.deployment" href="index.html">scripts.deployment</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="scripts.deployment.run_agent.get_paths" href="#scripts.deployment.run_agent.get_paths">get_paths</a></code></li>
+<li><code><a title="scripts.deployment.run_agent.make_env" href="#scripts.deployment.run_agent.make_env">make_env</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

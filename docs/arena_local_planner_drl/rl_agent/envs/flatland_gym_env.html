@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>rl_agent.envs.flatland_gym_env API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>rl_agent.envs.flatland_gym_env</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#! /usr/bin/env python
+from operator import is_
+from random import randint
+import gym
+from gym import spaces
+from gym.spaces import space
+from typing import Union
+from stable_baselines3.common.env_checker import check_env
+import yaml
+from rl_agent.utils.observation_collector import ObservationCollector
+from rl_agent.utils.reward import RewardCalculator
+from rl_agent.utils.debug import timeit
+from rospy.exceptions import ROSException
+from task_generator.tasks import ABSTask
+import numpy as np
+import rospy
+from geometry_msgs.msg import Twist, Pose2D
+from std_msgs.msg import String
+from flatland_msgs.srv import StepWorld, StepWorldRequest
+from std_msgs.msg import Bool
+import time
+import math
+
+from rl_agent.utils.debug import timeit
+from task_generator.tasks import get_predefined_task
+
+
+class FlatlandEnv(gym.Env):
+    &#34;&#34;&#34;Custom Environment that follows gym interface&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        ns: str,
+        reward_fnc: str,
+        is_action_space_discrete: bool,
+        safe_dist: float = None,
+        goal_radius: float = 0.1,
+        max_steps_per_episode=100,
+        train_mode: bool = True,
+        debug: bool = False,
+        task_mode: str = &#34;staged&#34;,
+        PATHS: dict = dict(),
+        extended_eval: bool = False,
+        *args,
+        **kwargs,
+    ):
+        &#34;&#34;&#34;Default env
+        Flatland yaml node check the entries in the yaml file, therefore other robot related parameters cound only be saved in an other file.
+        TODO : write an uniform yaml paser node to handel with multiple yaml files.
+
+
+        Args:
+            task (ABSTask): [description]
+            reward_fnc (str): [description]
+            train_mode (bool): bool to differ between train and eval env during training
+            is_action_space_discrete (bool): [description]
+            safe_dist (float, optional): [description]. Defaults to None.
+            goal_radius (float, optional): [description]. Defaults to 0.1.
+            extended_eval (bool): more episode info provided, no reset when crashing
+        &#34;&#34;&#34;
+        super(FlatlandEnv, self).__init__()
+
+        self.ns = ns
+        try:
+            # given every environment enough time to initialize, if we dont put sleep,
+            # the training script may crash.
+            ns_int = int(ns.split(&#34;_&#34;)[1])
+            time.sleep(ns_int * 2)
+        except Exception:
+            rospy.logwarn(
+                f&#34;Can&#39;t not determinate the number of the environment, training script may crash!&#34;
+            )
+
+        # process specific namespace in ros system
+        self.ns_prefix = &#34;&#34; if (ns == &#34;&#34; or ns is None) else &#34;/&#34; + ns + &#34;/&#34;
+
+        if not debug:
+            if train_mode:
+                rospy.init_node(f&#34;train_env_{self.ns}&#34;, disable_signals=False)
+            else:
+                rospy.init_node(f&#34;eval_env_{self.ns}&#34;, disable_signals=False)
+
+        self._extended_eval = extended_eval
+        self._is_train_mode = rospy.get_param(&#34;/train_mode&#34;)
+        self._is_action_space_discrete = is_action_space_discrete
+        self._action_frequency = 1 / rospy.get_param(
+            &#34;/robot_action_rate&#34;
+        )  # for time controlling in train mode
+
+        self.setup_by_configuration(PATHS[&#34;robot_setting&#34;], PATHS[&#34;robot_as&#34;])
+
+        # observation collector
+        self.observation_collector = ObservationCollector(
+            self.ns, self._laser_num_beams, self._laser_max_range
+        )
+        self.observation_space = (
+            self.observation_collector.get_observation_space()
+        )
+
+        # reward calculator
+        if safe_dist is None:
+            safe_dist = 1.6 * self._robot_radius
+
+        self.reward_calculator = RewardCalculator(
+            robot_radius=self._robot_radius,
+            safe_dist=1.6 * self._robot_radius,
+            goal_radius=goal_radius,
+            rule=reward_fnc,
+            extended_eval=self._extended_eval,
+        )
+
+        # action agent publisher
+        if self._is_train_mode:
+            self.agent_action_pub = rospy.Publisher(
+                f&#34;{self.ns_prefix}cmd_vel&#34;, Twist, queue_size=1
+            )
+        else:
+            self.agent_action_pub = rospy.Publisher(
+                f&#34;{self.ns_prefix}cmd_vel_pub&#34;, Twist, queue_size=1
+            )
+
+        # service clients
+        if self._is_train_mode:
+            self._service_name_step = f&#34;{self.ns_prefix}step_world&#34;
+            self._sim_step_client = rospy.ServiceProxy(
+                self._service_name_step, StepWorld
+            )
+
+        # instantiate task manager
+        self.task = get_predefined_task(
+            ns, mode=task_mode, start_stage=kwargs[&#34;curr_stage&#34;], PATHS=PATHS
+        )
+
+        self._steps_curr_episode = 0
+        self._max_steps_per_episode = max_steps_per_episode
+
+        # for extended eval
+        self._last_robot_pose = None
+        self._distance_travelled = 0
+        self._safe_dist_counter = 0
+        self._collisions = 0
+        self._in_crash = False
+
+        # publisher for random map training
+        self.demand_map_pub = rospy.Publisher(&#34;/demand&#34;, String, queue_size=1)
+
+    def setup_by_configuration(
+        self, robot_yaml_path: str, settings_yaml_path: str
+    ):
+        &#34;&#34;&#34;get the configuration from the yaml file, including robot radius, discrete action space and continuous action space.
+
+        Args:
+            robot_yaml_path (str): [description]
+        &#34;&#34;&#34;
+        with open(robot_yaml_path, &#34;r&#34;) as fd:
+            robot_data = yaml.safe_load(fd)
+            # get robot radius
+            for body in robot_data[&#34;bodies&#34;]:
+                if body[&#34;name&#34;] == &#34;base_footprint&#34;:
+                    for footprint in body[&#34;footprints&#34;]:
+                        if footprint[&#34;type&#34;] == &#34;circle&#34;:
+                            self._robot_radius = (
+                                footprint.setdefault(&#34;radius&#34;, 0.3) * 1.05
+                            )
+                        if footprint[&#34;radius&#34;]:
+                            self._robot_radius = footprint[&#34;radius&#34;] * 1.05
+            # get laser related information
+            for plugin in robot_data[&#34;plugins&#34;]:
+                if plugin[&#34;type&#34;] == &#34;Laser&#34;:
+                    laser_angle_min = plugin[&#34;angle&#34;][&#34;min&#34;]
+                    laser_angle_max = plugin[&#34;angle&#34;][&#34;max&#34;]
+                    laser_angle_increment = plugin[&#34;angle&#34;][&#34;increment&#34;]
+                    self._laser_num_beams = int(
+                        round(
+                            (laser_angle_max - laser_angle_min)
+                            / laser_angle_increment
+                        )
+                        + 1
+                    )
+                    self._laser_max_range = plugin[&#34;range&#34;]
+
+        with open(settings_yaml_path, &#34;r&#34;) as fd:
+            setting_data = yaml.safe_load(fd)
+            if self._is_action_space_discrete:
+                # self._discrete_actions is a list, each element is a dict with the keys [&#34;name&#34;, &#39;linear&#39;,&#39;angular&#39;]
+                self._discrete_acitons = setting_data[&#34;robot&#34;][
+                    &#34;discrete_actions&#34;
+                ]
+                self.action_space = spaces.Discrete(len(self._discrete_acitons))
+            else:
+                linear_range = setting_data[&#34;robot&#34;][&#34;continuous_actions&#34;][
+                    &#34;linear_range&#34;
+                ]
+                angular_range = setting_data[&#34;robot&#34;][&#34;continuous_actions&#34;][
+                    &#34;angular_range&#34;
+                ]
+                self.action_space = spaces.Box(
+                    low=np.array([linear_range[0], angular_range[0]]),
+                    high=np.array([linear_range[1], angular_range[1]]),
+                    dtype=np.float,
+                )
+
+    def _pub_action(self, action: np.ndarray):
+        action_msg = Twist()
+        action_msg.linear.x = action[0]
+        action_msg.angular.z = action[1]
+        self.agent_action_pub.publish(action_msg)
+
+    def _translate_disc_action(self, action: np.ndarray):
+        new_action = np.array([])
+        new_action = np.append(
+            new_action, self._discrete_acitons[action][&#34;linear&#34;]
+        )
+        new_action = np.append(
+            new_action, self._discrete_acitons[action][&#34;angular&#34;]
+        )
+
+        return new_action
+
+    def step(self, action: np.ndarray):
+        &#34;&#34;&#34;
+        done_reasons:   0   -   exceeded max steps
+                        1   -   collision with obstacle
+                        2   -   goal reached
+        &#34;&#34;&#34;
+        self._steps_curr_episode += 1
+
+        (
+            self._pub_action(action)
+            if not self._is_action_space_discrete
+            else self._pub_action(self._translate_disc_action(action))
+        )
+
+        # apply action time horizon
+        if self._is_train_mode:
+            self.call_service_takeSimStep(self._action_frequency)
+        else:
+            self._wait_for_next_action_cycle()
+
+        # wait for new observations
+        merged_obs, obs_dict = self.observation_collector.get_observations()
+
+        # calculate reward
+        reward, reward_info = self.reward_calculator.get_reward(
+            obs_dict[&#34;laser_scan&#34;],
+            obs_dict[&#34;goal_in_robot_frame&#34;],
+            action=action,
+            global_plan=obs_dict[&#34;global_plan&#34;],
+            robot_pose=obs_dict[&#34;robot_pose&#34;],
+        )
+        # print(f&#34;cum_reward: {reward}&#34;)
+        done = reward_info[&#34;is_done&#34;]
+
+        # extended eval info
+        if self._extended_eval:
+            self._update_eval_statistics(obs_dict, reward_info)
+
+        # info
+        info = {}
+
+        if done:
+            info[&#34;done_reason&#34;] = reward_info[&#34;done_reason&#34;]
+            info[&#34;is_success&#34;] = reward_info[&#34;is_success&#34;]
+
+        if self._steps_curr_episode &gt; self._max_steps_per_episode:
+            done = True
+            info[&#34;done_reason&#34;] = 0
+            info[&#34;is_success&#34;] = 0
+
+        # for logging
+        if self._extended_eval and done:
+            info[&#34;collisions&#34;] = self._collisions
+            info[&#34;distance_travelled&#34;] = round(self._distance_travelled, 2)
+            info[&#34;time_safe_dist&#34;] = (
+                self._safe_dist_counter * self._action_frequency
+            )
+            info[&#34;time&#34;] = self._steps_curr_episode * self._action_frequency
+        return merged_obs, reward, done, info
+
+    def reset(self):
+        self.demand_map_pub.publish(&#34;&#34;)  # publisher to demand a map update
+        # set task
+        # regenerate start position end goal position of the robot and change the obstacles accordingly
+        self.agent_action_pub.publish(Twist())
+        if self._is_train_mode:
+            self._sim_step_client()
+        time.sleep(0.1)  # map_pub needs some time to update map
+        self.task.reset()
+        self.reward_calculator.reset()
+        self._steps_curr_episode = 0
+
+        # extended eval info
+        if self._extended_eval:
+            self._last_robot_pose = None
+            self._distance_travelled = 0
+            self._safe_dist_counter = 0
+            self._collisions = 0
+
+        obs, _ = self.observation_collector.get_observations()
+        return obs  # reward, done, info can&#39;t be included
+
+    def close(self):
+        pass
+
+    def call_service_takeSimStep(self, t: float = None):
+        request = StepWorldRequest() if t is None else StepWorldRequest(t)
+
+        try:
+            response = self._sim_step_client(request)
+            rospy.logdebug(&#34;step service=&#34;, response)
+        except rospy.ServiceException as e:
+            rospy.logdebug(&#34;step Service call failed: %s&#34; % e)
+
+    def _wait_for_next_action_cycle(self):
+        try:
+            rospy.wait_for_message(f&#34;{self.ns_prefix}next_cycle&#34;, Bool)
+        except ROSException:
+            pass
+
+    def _update_eval_statistics(self, obs_dict: dict, reward_info: dict):
+        &#34;&#34;&#34;
+        Updates the metrics for extended eval mode
+
+        param obs_dict (dict): observation dictionary from ObservationCollector.get_observations(),
+            necessary entries: &#39;robot_pose&#39;
+        param reward_info (dict): dictionary containing information returned from RewardCalculator.get_reward(),
+            necessary entries: &#39;crash&#39;, &#39;safe_dist&#39;
+        &#34;&#34;&#34;
+        # distance travelled
+        if self._last_robot_pose is not None:
+            self._distance_travelled += FlatlandEnv.get_distance(
+                self._last_robot_pose, obs_dict[&#34;robot_pose&#34;]
+            )
+
+        # collision detector
+        if &#34;crash&#34; in reward_info:
+            if reward_info[&#34;crash&#34;] and not self._in_crash:
+                self._collisions += 1
+                # when crash occures, robot strikes obst for a few consecutive timesteps
+                # we want to count it as only one collision
+                self._in_crash = True
+        else:
+            self._in_crash = False
+
+        # safe dist detector
+        if &#34;safe_dist&#34; in reward_info and reward_info[&#34;safe_dist&#34;]:
+            self._safe_dist_counter += 1
+
+        self._last_robot_pose = obs_dict[&#34;robot_pose&#34;]
+
+    @staticmethod
+    def get_distance(pose_1, pose_2):
+        return math.hypot(pose_2.x - pose_1.x, pose_2.y - pose_1.y)
+
+
+if __name__ == &#34;__main__&#34;:
+
+    rospy.init_node(&#34;flatland_gym_env&#34;, anonymous=True, disable_signals=False)
+    print(&#34;start&#34;)
+
+    flatland_env = FlatlandEnv()
+    check_env(flatland_env, warn=True)
+
+    # init env
+    obs = flatland_env.reset()
+
+    # run model
+    n_steps = 200
+    for _ in range(n_steps):
+        # action, _states = model.predict(obs)
+        action = flatland_env.action_space.sample()
+
+        obs, rewards, done, info = flatland_env.step(action)
+
+        time.sleep(0.1)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv"><code class="flex name class">
+<span>class <span class="ident">FlatlandEnv</span></span>
+<span>(</span><span>ns: str, reward_fnc: str, is_action_space_discrete: bool, safe_dist: float = None, goal_radius: float = 0.1, max_steps_per_episode=100, train_mode: bool = True, debug: bool = False, task_mode: str = 'staged', PATHS: dict = {}, extended_eval: bool = False, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Custom Environment that follows gym interface</p>
+<p>Default env
+Flatland yaml node check the entries in the yaml file, therefore other robot related parameters cound only be saved in an other file.
+TODO : write an uniform yaml paser node to handel with multiple yaml files.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>task</code></strong> :&ensp;<code>ABSTask</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>reward_fnc</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>train_mode</code></strong> :&ensp;<code>bool</code></dt>
+<dd>bool to differ between train and eval env during training</dd>
+<dt><strong><code>is_action_space_discrete</code></strong> :&ensp;<code>bool</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>safe_dist</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>[description]. Defaults to None.</dd>
+<dt><strong><code>goal_radius</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>[description]. Defaults to 0.1.</dd>
+<dt><strong><code>extended_eval</code></strong> :&ensp;<code>bool</code></dt>
+<dd>more episode info provided, no reset when crashing</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FlatlandEnv(gym.Env):
+    &#34;&#34;&#34;Custom Environment that follows gym interface&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        ns: str,
+        reward_fnc: str,
+        is_action_space_discrete: bool,
+        safe_dist: float = None,
+        goal_radius: float = 0.1,
+        max_steps_per_episode=100,
+        train_mode: bool = True,
+        debug: bool = False,
+        task_mode: str = &#34;staged&#34;,
+        PATHS: dict = dict(),
+        extended_eval: bool = False,
+        *args,
+        **kwargs,
+    ):
+        &#34;&#34;&#34;Default env
+        Flatland yaml node check the entries in the yaml file, therefore other robot related parameters cound only be saved in an other file.
+        TODO : write an uniform yaml paser node to handel with multiple yaml files.
+
+
+        Args:
+            task (ABSTask): [description]
+            reward_fnc (str): [description]
+            train_mode (bool): bool to differ between train and eval env during training
+            is_action_space_discrete (bool): [description]
+            safe_dist (float, optional): [description]. Defaults to None.
+            goal_radius (float, optional): [description]. Defaults to 0.1.
+            extended_eval (bool): more episode info provided, no reset when crashing
+        &#34;&#34;&#34;
+        super(FlatlandEnv, self).__init__()
+
+        self.ns = ns
+        try:
+            # given every environment enough time to initialize, if we dont put sleep,
+            # the training script may crash.
+            ns_int = int(ns.split(&#34;_&#34;)[1])
+            time.sleep(ns_int * 2)
+        except Exception:
+            rospy.logwarn(
+                f&#34;Can&#39;t not determinate the number of the environment, training script may crash!&#34;
+            )
+
+        # process specific namespace in ros system
+        self.ns_prefix = &#34;&#34; if (ns == &#34;&#34; or ns is None) else &#34;/&#34; + ns + &#34;/&#34;
+
+        if not debug:
+            if train_mode:
+                rospy.init_node(f&#34;train_env_{self.ns}&#34;, disable_signals=False)
+            else:
+                rospy.init_node(f&#34;eval_env_{self.ns}&#34;, disable_signals=False)
+
+        self._extended_eval = extended_eval
+        self._is_train_mode = rospy.get_param(&#34;/train_mode&#34;)
+        self._is_action_space_discrete = is_action_space_discrete
+        self._action_frequency = 1 / rospy.get_param(
+            &#34;/robot_action_rate&#34;
+        )  # for time controlling in train mode
+
+        self.setup_by_configuration(PATHS[&#34;robot_setting&#34;], PATHS[&#34;robot_as&#34;])
+
+        # observation collector
+        self.observation_collector = ObservationCollector(
+            self.ns, self._laser_num_beams, self._laser_max_range
+        )
+        self.observation_space = (
+            self.observation_collector.get_observation_space()
+        )
+
+        # reward calculator
+        if safe_dist is None:
+            safe_dist = 1.6 * self._robot_radius
+
+        self.reward_calculator = RewardCalculator(
+            robot_radius=self._robot_radius,
+            safe_dist=1.6 * self._robot_radius,
+            goal_radius=goal_radius,
+            rule=reward_fnc,
+            extended_eval=self._extended_eval,
+        )
+
+        # action agent publisher
+        if self._is_train_mode:
+            self.agent_action_pub = rospy.Publisher(
+                f&#34;{self.ns_prefix}cmd_vel&#34;, Twist, queue_size=1
+            )
+        else:
+            self.agent_action_pub = rospy.Publisher(
+                f&#34;{self.ns_prefix}cmd_vel_pub&#34;, Twist, queue_size=1
+            )
+
+        # service clients
+        if self._is_train_mode:
+            self._service_name_step = f&#34;{self.ns_prefix}step_world&#34;
+            self._sim_step_client = rospy.ServiceProxy(
+                self._service_name_step, StepWorld
+            )
+
+        # instantiate task manager
+        self.task = get_predefined_task(
+            ns, mode=task_mode, start_stage=kwargs[&#34;curr_stage&#34;], PATHS=PATHS
+        )
+
+        self._steps_curr_episode = 0
+        self._max_steps_per_episode = max_steps_per_episode
+
+        # for extended eval
+        self._last_robot_pose = None
+        self._distance_travelled = 0
+        self._safe_dist_counter = 0
+        self._collisions = 0
+        self._in_crash = False
+
+        # publisher for random map training
+        self.demand_map_pub = rospy.Publisher(&#34;/demand&#34;, String, queue_size=1)
+
+    def setup_by_configuration(
+        self, robot_yaml_path: str, settings_yaml_path: str
+    ):
+        &#34;&#34;&#34;get the configuration from the yaml file, including robot radius, discrete action space and continuous action space.
+
+        Args:
+            robot_yaml_path (str): [description]
+        &#34;&#34;&#34;
+        with open(robot_yaml_path, &#34;r&#34;) as fd:
+            robot_data = yaml.safe_load(fd)
+            # get robot radius
+            for body in robot_data[&#34;bodies&#34;]:
+                if body[&#34;name&#34;] == &#34;base_footprint&#34;:
+                    for footprint in body[&#34;footprints&#34;]:
+                        if footprint[&#34;type&#34;] == &#34;circle&#34;:
+                            self._robot_radius = (
+                                footprint.setdefault(&#34;radius&#34;, 0.3) * 1.05
+                            )
+                        if footprint[&#34;radius&#34;]:
+                            self._robot_radius = footprint[&#34;radius&#34;] * 1.05
+            # get laser related information
+            for plugin in robot_data[&#34;plugins&#34;]:
+                if plugin[&#34;type&#34;] == &#34;Laser&#34;:
+                    laser_angle_min = plugin[&#34;angle&#34;][&#34;min&#34;]
+                    laser_angle_max = plugin[&#34;angle&#34;][&#34;max&#34;]
+                    laser_angle_increment = plugin[&#34;angle&#34;][&#34;increment&#34;]
+                    self._laser_num_beams = int(
+                        round(
+                            (laser_angle_max - laser_angle_min)
+                            / laser_angle_increment
+                        )
+                        + 1
+                    )
+                    self._laser_max_range = plugin[&#34;range&#34;]
+
+        with open(settings_yaml_path, &#34;r&#34;) as fd:
+            setting_data = yaml.safe_load(fd)
+            if self._is_action_space_discrete:
+                # self._discrete_actions is a list, each element is a dict with the keys [&#34;name&#34;, &#39;linear&#39;,&#39;angular&#39;]
+                self._discrete_acitons = setting_data[&#34;robot&#34;][
+                    &#34;discrete_actions&#34;
+                ]
+                self.action_space = spaces.Discrete(len(self._discrete_acitons))
+            else:
+                linear_range = setting_data[&#34;robot&#34;][&#34;continuous_actions&#34;][
+                    &#34;linear_range&#34;
+                ]
+                angular_range = setting_data[&#34;robot&#34;][&#34;continuous_actions&#34;][
+                    &#34;angular_range&#34;
+                ]
+                self.action_space = spaces.Box(
+                    low=np.array([linear_range[0], angular_range[0]]),
+                    high=np.array([linear_range[1], angular_range[1]]),
+                    dtype=np.float,
+                )
+
+    def _pub_action(self, action: np.ndarray):
+        action_msg = Twist()
+        action_msg.linear.x = action[0]
+        action_msg.angular.z = action[1]
+        self.agent_action_pub.publish(action_msg)
+
+    def _translate_disc_action(self, action: np.ndarray):
+        new_action = np.array([])
+        new_action = np.append(
+            new_action, self._discrete_acitons[action][&#34;linear&#34;]
+        )
+        new_action = np.append(
+            new_action, self._discrete_acitons[action][&#34;angular&#34;]
+        )
+
+        return new_action
+
+    def step(self, action: np.ndarray):
+        &#34;&#34;&#34;
+        done_reasons:   0   -   exceeded max steps
+                        1   -   collision with obstacle
+                        2   -   goal reached
+        &#34;&#34;&#34;
+        self._steps_curr_episode += 1
+
+        (
+            self._pub_action(action)
+            if not self._is_action_space_discrete
+            else self._pub_action(self._translate_disc_action(action))
+        )
+
+        # apply action time horizon
+        if self._is_train_mode:
+            self.call_service_takeSimStep(self._action_frequency)
+        else:
+            self._wait_for_next_action_cycle()
+
+        # wait for new observations
+        merged_obs, obs_dict = self.observation_collector.get_observations()
+
+        # calculate reward
+        reward, reward_info = self.reward_calculator.get_reward(
+            obs_dict[&#34;laser_scan&#34;],
+            obs_dict[&#34;goal_in_robot_frame&#34;],
+            action=action,
+            global_plan=obs_dict[&#34;global_plan&#34;],
+            robot_pose=obs_dict[&#34;robot_pose&#34;],
+        )
+        # print(f&#34;cum_reward: {reward}&#34;)
+        done = reward_info[&#34;is_done&#34;]
+
+        # extended eval info
+        if self._extended_eval:
+            self._update_eval_statistics(obs_dict, reward_info)
+
+        # info
+        info = {}
+
+        if done:
+            info[&#34;done_reason&#34;] = reward_info[&#34;done_reason&#34;]
+            info[&#34;is_success&#34;] = reward_info[&#34;is_success&#34;]
+
+        if self._steps_curr_episode &gt; self._max_steps_per_episode:
+            done = True
+            info[&#34;done_reason&#34;] = 0
+            info[&#34;is_success&#34;] = 0
+
+        # for logging
+        if self._extended_eval and done:
+            info[&#34;collisions&#34;] = self._collisions
+            info[&#34;distance_travelled&#34;] = round(self._distance_travelled, 2)
+            info[&#34;time_safe_dist&#34;] = (
+                self._safe_dist_counter * self._action_frequency
+            )
+            info[&#34;time&#34;] = self._steps_curr_episode * self._action_frequency
+        return merged_obs, reward, done, info
+
+    def reset(self):
+        self.demand_map_pub.publish(&#34;&#34;)  # publisher to demand a map update
+        # set task
+        # regenerate start position end goal position of the robot and change the obstacles accordingly
+        self.agent_action_pub.publish(Twist())
+        if self._is_train_mode:
+            self._sim_step_client()
+        time.sleep(0.1)  # map_pub needs some time to update map
+        self.task.reset()
+        self.reward_calculator.reset()
+        self._steps_curr_episode = 0
+
+        # extended eval info
+        if self._extended_eval:
+            self._last_robot_pose = None
+            self._distance_travelled = 0
+            self._safe_dist_counter = 0
+            self._collisions = 0
+
+        obs, _ = self.observation_collector.get_observations()
+        return obs  # reward, done, info can&#39;t be included
+
+    def close(self):
+        pass
+
+    def call_service_takeSimStep(self, t: float = None):
+        request = StepWorldRequest() if t is None else StepWorldRequest(t)
+
+        try:
+            response = self._sim_step_client(request)
+            rospy.logdebug(&#34;step service=&#34;, response)
+        except rospy.ServiceException as e:
+            rospy.logdebug(&#34;step Service call failed: %s&#34; % e)
+
+    def _wait_for_next_action_cycle(self):
+        try:
+            rospy.wait_for_message(f&#34;{self.ns_prefix}next_cycle&#34;, Bool)
+        except ROSException:
+            pass
+
+    def _update_eval_statistics(self, obs_dict: dict, reward_info: dict):
+        &#34;&#34;&#34;
+        Updates the metrics for extended eval mode
+
+        param obs_dict (dict): observation dictionary from ObservationCollector.get_observations(),
+            necessary entries: &#39;robot_pose&#39;
+        param reward_info (dict): dictionary containing information returned from RewardCalculator.get_reward(),
+            necessary entries: &#39;crash&#39;, &#39;safe_dist&#39;
+        &#34;&#34;&#34;
+        # distance travelled
+        if self._last_robot_pose is not None:
+            self._distance_travelled += FlatlandEnv.get_distance(
+                self._last_robot_pose, obs_dict[&#34;robot_pose&#34;]
+            )
+
+        # collision detector
+        if &#34;crash&#34; in reward_info:
+            if reward_info[&#34;crash&#34;] and not self._in_crash:
+                self._collisions += 1
+                # when crash occures, robot strikes obst for a few consecutive timesteps
+                # we want to count it as only one collision
+                self._in_crash = True
+        else:
+            self._in_crash = False
+
+        # safe dist detector
+        if &#34;safe_dist&#34; in reward_info and reward_info[&#34;safe_dist&#34;]:
+            self._safe_dist_counter += 1
+
+        self._last_robot_pose = obs_dict[&#34;robot_pose&#34;]
+
+    @staticmethod
+    def get_distance(pose_1, pose_2):
+        return math.hypot(pose_2.x - pose_1.x, pose_2.y - pose_1.y)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>gym.core.Env</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv.get_distance"><code class="name flex">
+<span>def <span class="ident">get_distance</span></span>(<span>pose_1, pose_2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_distance(pose_1, pose_2):
+    return math.hypot(pose_2.x - pose_1.x, pose_2.y - pose_1.y)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv.call_service_takeSimStep"><code class="name flex">
+<span>def <span class="ident">call_service_takeSimStep</span></span>(<span>self, t: float = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def call_service_takeSimStep(self, t: float = None):
+    request = StepWorldRequest() if t is None else StepWorldRequest(t)
+
+    try:
+        response = self._sim_step_client(request)
+        rospy.logdebug(&#34;step service=&#34;, response)
+    except rospy.ServiceException as e:
+        rospy.logdebug(&#34;step Service call failed: %s&#34; % e)</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Override close in your subclass to perform any necessary cleanup.</p>
+<p>Environments will automatically close() themselves when
+garbage collected or when the program exits.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the environment to an initial state and returns an initial
+observation.</p>
+<p>Note that this function should not reset the environment's random
+number generator(s); random variables in the environment's state should
+be sampled independently between multiple calls to <code>reset()</code>. In other
+words, each call of <code>reset()</code> should yield an environment suitable for
+a new episode, independent of previous episodes.</p>
+<h2 id="returns">Returns</h2>
+<p>observation (object): the initial observation.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    self.demand_map_pub.publish(&#34;&#34;)  # publisher to demand a map update
+    # set task
+    # regenerate start position end goal position of the robot and change the obstacles accordingly
+    self.agent_action_pub.publish(Twist())
+    if self._is_train_mode:
+        self._sim_step_client()
+    time.sleep(0.1)  # map_pub needs some time to update map
+    self.task.reset()
+    self.reward_calculator.reset()
+    self._steps_curr_episode = 0
+
+    # extended eval info
+    if self._extended_eval:
+        self._last_robot_pose = None
+        self._distance_travelled = 0
+        self._safe_dist_counter = 0
+        self._collisions = 0
+
+    obs, _ = self.observation_collector.get_observations()
+    return obs  # reward, done, info can&#39;t be included</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv.setup_by_configuration"><code class="name flex">
+<span>def <span class="ident">setup_by_configuration</span></span>(<span>self, robot_yaml_path: str, settings_yaml_path: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>get the configuration from the yaml file, including robot radius, discrete action space and continuous action space.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>robot_yaml_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_by_configuration(
+    self, robot_yaml_path: str, settings_yaml_path: str
+):
+    &#34;&#34;&#34;get the configuration from the yaml file, including robot radius, discrete action space and continuous action space.
+
+    Args:
+        robot_yaml_path (str): [description]
+    &#34;&#34;&#34;
+    with open(robot_yaml_path, &#34;r&#34;) as fd:
+        robot_data = yaml.safe_load(fd)
+        # get robot radius
+        for body in robot_data[&#34;bodies&#34;]:
+            if body[&#34;name&#34;] == &#34;base_footprint&#34;:
+                for footprint in body[&#34;footprints&#34;]:
+                    if footprint[&#34;type&#34;] == &#34;circle&#34;:
+                        self._robot_radius = (
+                            footprint.setdefault(&#34;radius&#34;, 0.3) * 1.05
+                        )
+                    if footprint[&#34;radius&#34;]:
+                        self._robot_radius = footprint[&#34;radius&#34;] * 1.05
+        # get laser related information
+        for plugin in robot_data[&#34;plugins&#34;]:
+            if plugin[&#34;type&#34;] == &#34;Laser&#34;:
+                laser_angle_min = plugin[&#34;angle&#34;][&#34;min&#34;]
+                laser_angle_max = plugin[&#34;angle&#34;][&#34;max&#34;]
+                laser_angle_increment = plugin[&#34;angle&#34;][&#34;increment&#34;]
+                self._laser_num_beams = int(
+                    round(
+                        (laser_angle_max - laser_angle_min)
+                        / laser_angle_increment
+                    )
+                    + 1
+                )
+                self._laser_max_range = plugin[&#34;range&#34;]
+
+    with open(settings_yaml_path, &#34;r&#34;) as fd:
+        setting_data = yaml.safe_load(fd)
+        if self._is_action_space_discrete:
+            # self._discrete_actions is a list, each element is a dict with the keys [&#34;name&#34;, &#39;linear&#39;,&#39;angular&#39;]
+            self._discrete_acitons = setting_data[&#34;robot&#34;][
+                &#34;discrete_actions&#34;
+            ]
+            self.action_space = spaces.Discrete(len(self._discrete_acitons))
+        else:
+            linear_range = setting_data[&#34;robot&#34;][&#34;continuous_actions&#34;][
+                &#34;linear_range&#34;
+            ]
+            angular_range = setting_data[&#34;robot&#34;][&#34;continuous_actions&#34;][
+                &#34;angular_range&#34;
+            ]
+            self.action_space = spaces.Box(
+                low=np.array([linear_range[0], angular_range[0]]),
+                high=np.array([linear_range[1], angular_range[1]]),
+                dtype=np.float,
+            )</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.flatland_gym_env.FlatlandEnv.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self, action: numpy.ndarray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>done_reasons:
+0
+-
+exceeded max steps
+1
+-
+collision with obstacle
+2
+-
+goal reached</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self, action: np.ndarray):
+    &#34;&#34;&#34;
+    done_reasons:   0   -   exceeded max steps
+                    1   -   collision with obstacle
+                    2   -   goal reached
+    &#34;&#34;&#34;
+    self._steps_curr_episode += 1
+
+    (
+        self._pub_action(action)
+        if not self._is_action_space_discrete
+        else self._pub_action(self._translate_disc_action(action))
+    )
+
+    # apply action time horizon
+    if self._is_train_mode:
+        self.call_service_takeSimStep(self._action_frequency)
+    else:
+        self._wait_for_next_action_cycle()
+
+    # wait for new observations
+    merged_obs, obs_dict = self.observation_collector.get_observations()
+
+    # calculate reward
+    reward, reward_info = self.reward_calculator.get_reward(
+        obs_dict[&#34;laser_scan&#34;],
+        obs_dict[&#34;goal_in_robot_frame&#34;],
+        action=action,
+        global_plan=obs_dict[&#34;global_plan&#34;],
+        robot_pose=obs_dict[&#34;robot_pose&#34;],
+    )
+    # print(f&#34;cum_reward: {reward}&#34;)
+    done = reward_info[&#34;is_done&#34;]
+
+    # extended eval info
+    if self._extended_eval:
+        self._update_eval_statistics(obs_dict, reward_info)
+
+    # info
+    info = {}
+
+    if done:
+        info[&#34;done_reason&#34;] = reward_info[&#34;done_reason&#34;]
+        info[&#34;is_success&#34;] = reward_info[&#34;is_success&#34;]
+
+    if self._steps_curr_episode &gt; self._max_steps_per_episode:
+        done = True
+        info[&#34;done_reason&#34;] = 0
+        info[&#34;is_success&#34;] = 0
+
+    # for logging
+    if self._extended_eval and done:
+        info[&#34;collisions&#34;] = self._collisions
+        info[&#34;distance_travelled&#34;] = round(self._distance_travelled, 2)
+        info[&#34;time_safe_dist&#34;] = (
+            self._safe_dist_counter * self._action_frequency
+        )
+        info[&#34;time&#34;] = self._steps_curr_episode * self._action_frequency
+    return merged_obs, reward, done, info</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="rl_agent.envs" href="index.html">rl_agent.envs</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv">FlatlandEnv</a></code></h4>
+<ul class="">
+<li><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv.call_service_takeSimStep" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv.call_service_takeSimStep">call_service_takeSimStep</a></code></li>
+<li><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv.close" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv.close">close</a></code></li>
+<li><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv.get_distance" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv.get_distance">get_distance</a></code></li>
+<li><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv.reset" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv.reset">reset</a></code></li>
+<li><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv.setup_by_configuration" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv.setup_by_configuration">setup_by_configuration</a></code></li>
+<li><code><a title="rl_agent.envs.flatland_gym_env.FlatlandEnv.step" href="#rl_agent.envs.flatland_gym_env.FlatlandEnv.step">step</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

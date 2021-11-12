@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>rl_agent.envs.pettingzoo_env API documentation</title>
+<meta name="description" content="PettingZoo Environment for Single-/Multi Agent Reinforcement Learning" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>rl_agent.envs.pettingzoo_env</code></h1>
+</header>
+<section id="section-intro">
+<p>PettingZoo Environment for Single-/Multi Agent Reinforcement Learning</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;PettingZoo Environment for Single-/Multi Agent Reinforcement Learning&#34;&#34;&#34;
+from time import sleep
+from typing import List, Tuple, Dict, Any, Union, Callable
+
+import numpy as np
+import rospy
+
+from gym import spaces
+from pettingzoo import *
+from pettingzoo.utils import wrappers, from_parallel, to_parallel
+import supersuit as ss
+from stable_baselines3.common.vec_env import VecEnv
+
+from rl_agent.training_agent_wrapper import TrainingDRLAgent
+from task_generator.marl_tasks import get_MARL_task
+
+from flatland_msgs.srv import StepWorld, StepWorldRequest
+
+from rl_agent.utils.supersuit_utils import MarkovVectorEnv_patched
+
+
+def env_fn(**kwargs: Dict[str, Any]) -&gt; VecEnv:
+    &#34;&#34;&#34;
+    The env function wraps the environment in 3 wrappers by default. These
+    wrappers contain logic that is common to many pettingzoo environments.
+    We recommend you use at least the OrderEnforcingWrapper on your own environment
+    to provide sane error messages. You can find full documentation for these methods
+    elsewhere in the developer documentation.
+    &#34;&#34;&#34;
+    env = FlatlandPettingZooEnv(**kwargs)
+    env = from_parallel(env)
+    env = ss.pad_action_space_v0(env)
+    env = ss.pad_observations_v0(env)
+    env = to_parallel(env)
+    env = MarkovVectorEnv_patched(env, black_death=True)
+    return env
+
+
+class FlatlandPettingZooEnv(ParallelEnv):
+    &#34;&#34;&#34;The SuperSuit Parallel environment steps every live agent at once.&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        num_agents: int,
+        agent_list_fn: Callable[
+            [int, str, str, str, str], List[TrainingDRLAgent]
+        ],
+        PATHS: dict,
+        ns: str = None,
+        task_mode: str = &#34;staged&#34;,
+        max_num_moves_per_eps: int = 1000,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialization method for the Arena-Rosnav Pettingzoo Environment.
+
+        Args:
+            num_agents (int): Number of possible agents.
+            agent_list_fn (Callable[ [int, str, str, str, str], List[TrainingDRLAgent] ]): Initialization function for the agents. \
+                Returns a list of agent instances.
+            ns (str, optional): Environments&#39; ROS namespace. There should only be one env per ns. Defaults to None.
+            task_mode (str, optional): Navigation task mode for the agents. Modes to chose from: [&#39;random&#39;, &#39;staged&#39;]. \
+                Defaults to &#34;random&#34;.
+            max_num_moves_per_eps (int, optional): Maximum number of moves per episode. Defaults to 1000.
+            
+        Note:
+            These attributes should not be changed after initialization:
+            - possible_agents
+            - action_spaces
+            - observation_spaces
+        &#34;&#34;&#34;
+        self._ns = &#34;&#34; if ns is None or ns == &#34;&#34; else ns + &#34;/&#34;
+        self._is_train_mode = rospy.get_param(&#34;/train_mode&#34;)
+        self.metadata = {&#34;render.modes&#34;: [&#34;human&#34;], &#34;name&#34;: &#34;rps_v2&#34;}
+
+        agent_list = agent_list_fn(num_agents, ns=ns)
+
+        self.agents = []
+        self.possible_agents = [a._robot_sim_ns for a in agent_list]
+        self.agent_name_mapping = dict(
+            zip(self.possible_agents, list(range(len(self.possible_agents))))
+        )
+        self.agent_object_mapping = dict(zip(self.possible_agents, agent_list))
+        self._robot_sim_ns = [a._robot_sim_ns for a in agent_list]
+        self.terminal_observation = {}
+
+        self._validate_agent_list()
+
+        # task manager
+        self.task_manager = get_MARL_task(
+            ns=ns,
+            mode=task_mode,
+            robot_names=self._robot_sim_ns,
+            PATHS=PATHS,
+        )
+
+        # service clients
+        if self._is_train_mode:
+            self._service_name_step = f&#34;{self._ns}step_world&#34;
+            self._sim_step_client = rospy.ServiceProxy(
+                self._service_name_step, StepWorld
+            )
+
+        self._max_num_moves = max_num_moves_per_eps
+
+    def observation_space(self, agent: str) -&gt; spaces.Box:
+        &#34;&#34;&#34;Returns specific agents&#39; observation space.
+
+        Args:
+            agent (str): Agent name as given in ``self.possible_agents``.
+
+        Returns:
+            spaces.Box: Observation space of type _gym.spaces_.
+        &#34;&#34;&#34;
+        return self.agent_object_mapping[agent].observation_space
+
+    def action_space(self, agent: str) -&gt; spaces.Box:
+        &#34;&#34;&#34;Returns specific agents&#39; action space.
+
+        Args:
+            agent (str): Agent name as given in ``self.possible_agents``.
+
+        Returns:
+            spaces.Box: Action space of type _gym.spaces_.
+        &#34;&#34;&#34;
+        return self.agent_object_mapping[agent].action_space
+
+    def _validate_agent_list(self) -&gt; None:
+        &#34;&#34;&#34;Validates the agent list.
+
+        Description:
+            Checks if all agents are named differently. That means each robot adresses its own namespace.
+        &#34;&#34;&#34;
+        assert len(self.possible_agents) == len(
+            set(self.possible_agents)
+        ), &#34;Robot names and thus their namespaces, have to be unique!&#34;
+
+    def reset(self) -&gt; Dict[str, np.ndarray]:
+        &#34;&#34;&#34;Resets the environment and returns the new set of observations (keyed by the agent name)
+
+        Description:
+            This method is called when all agents reach an end criterion. End criterions are: exceeding the \
+            max number of steps per episode, crash or reaching the end criterion.
+            The scene is then reseted.
+            
+        Returns:
+            Dict[str, np.ndarray]: Observations dictionary in {_agent name_: _respective observations_}.
+        &#34;&#34;&#34;
+        self.agents = self.possible_agents[:]
+        self.num_moves = 0
+        self.terminal_observation = {}
+
+        # reset the reward calculator
+        for agent in self.agents:
+            self.agent_object_mapping[agent].reward_calculator.reset()
+
+        # reset the task manager
+        self.task_manager.reset()
+        # step one timestep in the simulation to update the scene
+        if self._is_train_mode:
+            self._sim_step_client()
+
+        # get first observations for the next episode
+        observations = {
+            agent: self.agent_object_mapping[agent].get_observations()[0]
+            for agent in self.agents
+        }
+
+        return observations
+
+    def step(
+        self, actions: Dict[str, np.ndarray]
+    ) -&gt; Tuple[
+        Dict[str, np.ndarray],
+        Dict[str, float],
+        Dict[str, bool],
+        Dict[str, Dict[str, Any]],
+    ]:
+        &#34;&#34;&#34;Simulates one timestep and returns the most recent environment information.
+
+        Description:
+            This function takes in velocity commands and applies those to the simulation.
+            Afterwards, agents&#39; observations are retrieved from the current timestep and \
+            the reward is calculated. \
+            Proceeding with the ``RewardCalculator`` processing the observations and detecting certain events like \
+            if a crash occured, a goal was reached. Those informations are returned in the &#39;*reward\_info*&#39; \
+            which itself is a dictionary. \
+            Eventually, dictionaries containing every agents&#39; observations, rewards, done flags and \
+            episode information is returned.
+
+        Args:
+            actions (Dict[str, np.ndarray]): Actions dictionary in {_agent name_: _respective observations_}.
+
+        Returns:
+            Tuple[ Dict[str, np.ndarray], Dict[str, float], Dict[str, bool], Dict[str, Dict[str, Any]], ]: Observations, \
+                rewards, done flags and episode informations dictionary.
+        
+        Note:
+            Done reasons are mapped as follows: __0__ - episode length exceeded, __1__ - agent crashed, \
+                __2__ - agent reached its goal.
+        &#34;&#34;&#34;
+        # If a user passes in actions with no agents, then just return empty observations, etc.
+        if not actions:
+            self.agents = []
+            return {}, {}, {}, {}
+
+        # actions
+        for agent in self.possible_agents:
+            if agent in actions:
+                self.agent_object_mapping[agent].publish_action(actions[agent])
+            else:
+                noop = np.zeros(shape=self.action_space(agent).shape)
+                self.agent_object_mapping[agent].publish_action(noop)
+
+        # fast-forward simulation
+        self.call_service_takeSimStep()
+        self.num_moves += 1
+
+        merged_obs, rewards, reward_infos = {}, {}, {}
+
+        for agent in actions:
+            # observations
+            merged, _dict = self.agent_object_mapping[agent].get_observations()
+            merged_obs[agent] = merged
+
+            # rewards and infos
+            reward, reward_info = self.agent_object_mapping[agent].get_reward(
+                action=actions[agent], obs_dict=_dict
+            )
+            rewards[agent], reward_infos[agent] = reward, reward_info
+
+        # dones &amp; infos
+        dones, infos = self._get_dones(reward_infos), self._get_infos(
+            reward_infos
+        )
+
+        # remove done agents from the active agents list
+        self.agents = [agent for agent in self.agents if not dones[agent]]
+
+        for agent in self.possible_agents:
+            # agent is done in this episode
+            if agent in dones and dones[agent]:
+                self.terminal_observation[agent] = merged_obs[agent]
+                infos[agent][&#34;terminal_observation&#34;] = merged_obs[agent]
+            # agent is done since atleast last episode
+            elif agent not in self.agents:
+                if agent not in infos:
+                    infos[agent] = {}
+                infos[agent][
+                    &#34;terminal_observation&#34;
+                ] = self.terminal_observation[agent]
+
+        return merged_obs, rewards, dones, infos
+
+    @property
+    def max_num_agents(self):
+        return len(self.agents)
+
+    def call_service_takeSimStep(self, t: float = None):
+        &#34;&#34;&#34;Fast-forwards the simulation.
+
+        Description:
+            Simulates the Flatland simulation for a certain amount of seconds.
+            
+        Args:
+            t (float, optional): Time in seconds. When ``t`` is None, time is forwarded by ``step_size`` s \
+                (ROS parameter). Defaults to None.
+        &#34;&#34;&#34;
+        request = StepWorldRequest() if t is None else StepWorldRequest(t)
+
+        try:
+            response = self._sim_step_client(request)
+            rospy.logdebug(&#34;step service=&#34;, response)
+        except rospy.ServiceException as e:
+            rospy.logdebug(&#34;step Service call failed: %s&#34; % e)
+
+    def _get_dones(
+        self, reward_infos: Dict[str, Dict[str, Any]]
+    ) -&gt; Dict[str, bool]:
+        &#34;&#34;&#34;Extracts end flags from the reward information dictionary.
+
+        Args:
+            reward_infos (Dict[str, Dict[str, Any]]): Episode information from the ``RewardCalculator`` in \
+                {_agent name_: _reward infos_}.
+
+        Returns:
+            Dict[str, bool]: Dones dictionary in {_agent name_: _done flag_}
+            
+        Note:
+            Relevant dictionary keys are: &#34;is_done&#34;, &#34;is_success&#34;, &#34;done_reason&#34;
+        &#34;&#34;&#34;
+        return (
+            {agent: reward_infos[agent][&#34;is_done&#34;] for agent in self.agents}
+            if self.num_moves &lt; self._max_num_moves
+            else {agent: True for agent in self.agents}
+        )
+
+    def _get_infos(
+        self, reward_infos: Dict[str, Dict[str, Any]]
+    ) -&gt; Dict[str, Dict[str, Any]]:
+        &#34;&#34;&#34;Extracts the current episode information from the reward information dictionary.
+
+        Args:
+            reward_infos (Dict[str, Dict[str, Any]]): Episode information from the ``RewardCalculator`` in \
+                {_agent name_: _reward infos_}.
+
+        Returns:
+            Dict[str, Dict[str, Any]]: Info dictionary in {_agent name_: _done flag_}
+            
+        Note:
+            Relevant dictionary keys are: &#34;is_done&#34;, &#34;is_success&#34;, &#34;done_reason&#34;
+        &#34;&#34;&#34;
+        infos = {agent: {} for agent in self.agents}
+        for agent in self.agents:
+            if reward_infos[agent][&#34;is_done&#34;]:
+                infos[agent] = reward_infos[agent]
+            elif self.num_moves &gt;= self._max_num_moves:
+                infos[agent] = {
+                    &#34;done_reason&#34;: 0,
+                    &#34;is_success&#34;: 0,
+                }
+        return infos</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="rl_agent.envs.pettingzoo_env.env_fn"><code class="name flex">
+<span>def <span class="ident">env_fn</span></span>(<span>**kwargs: Dict[str, Any]) ‑> stable_baselines3.common.vec_env.base_vec_env.VecEnv</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The env function wraps the environment in 3 wrappers by default. These
+wrappers contain logic that is common to many pettingzoo environments.
+We recommend you use at least the OrderEnforcingWrapper on your own environment
+to provide sane error messages. You can find full documentation for these methods
+elsewhere in the developer documentation.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def env_fn(**kwargs: Dict[str, Any]) -&gt; VecEnv:
+    &#34;&#34;&#34;
+    The env function wraps the environment in 3 wrappers by default. These
+    wrappers contain logic that is common to many pettingzoo environments.
+    We recommend you use at least the OrderEnforcingWrapper on your own environment
+    to provide sane error messages. You can find full documentation for these methods
+    elsewhere in the developer documentation.
+    &#34;&#34;&#34;
+    env = FlatlandPettingZooEnv(**kwargs)
+    env = from_parallel(env)
+    env = ss.pad_action_space_v0(env)
+    env = ss.pad_observations_v0(env)
+    env = to_parallel(env)
+    env = MarkovVectorEnv_patched(env, black_death=True)
+    return env</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv"><code class="flex name class">
+<span>class <span class="ident">FlatlandPettingZooEnv</span></span>
+<span>(</span><span>num_agents: int, agent_list_fn: Callable[[int, str, str, str, str], List[<a title="rl_agent.training_agent_wrapper.TrainingDRLAgent" href="../training_agent_wrapper.html#rl_agent.training_agent_wrapper.TrainingDRLAgent">TrainingDRLAgent</a>]], PATHS: dict, ns: str = None, task_mode: str = 'staged', max_num_moves_per_eps: int = 1000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The SuperSuit Parallel environment steps every live agent at once.</p>
+<p>Initialization method for the Arena-Rosnav Pettingzoo Environment.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num_agents</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of possible agents.</dd>
+<dt><strong><code>agent_list_fn</code></strong> :&ensp;<code>Callable[ [int, str, str, str, str], List[TrainingDRLAgent] ]</code></dt>
+<dd>Initialization function for the agents.
+Returns a list of agent instances.</dd>
+<dt><strong><code>ns</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Environments' ROS namespace. There should only be one env per ns. Defaults to None.</dd>
+<dt><strong><code>task_mode</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Navigation task mode for the agents. Modes to chose from: ['random', 'staged'].
+Defaults to "random".</dd>
+<dt><strong><code>max_num_moves_per_eps</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Maximum number of moves per episode. Defaults to 1000.</dd>
+</dl>
+<h2 id="note">Note</h2>
+<p>These attributes should not be changed after initialization:
+- possible_agents
+- action_spaces
+- observation_spaces</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FlatlandPettingZooEnv(ParallelEnv):
+    &#34;&#34;&#34;The SuperSuit Parallel environment steps every live agent at once.&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        num_agents: int,
+        agent_list_fn: Callable[
+            [int, str, str, str, str], List[TrainingDRLAgent]
+        ],
+        PATHS: dict,
+        ns: str = None,
+        task_mode: str = &#34;staged&#34;,
+        max_num_moves_per_eps: int = 1000,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialization method for the Arena-Rosnav Pettingzoo Environment.
+
+        Args:
+            num_agents (int): Number of possible agents.
+            agent_list_fn (Callable[ [int, str, str, str, str], List[TrainingDRLAgent] ]): Initialization function for the agents. \
+                Returns a list of agent instances.
+            ns (str, optional): Environments&#39; ROS namespace. There should only be one env per ns. Defaults to None.
+            task_mode (str, optional): Navigation task mode for the agents. Modes to chose from: [&#39;random&#39;, &#39;staged&#39;]. \
+                Defaults to &#34;random&#34;.
+            max_num_moves_per_eps (int, optional): Maximum number of moves per episode. Defaults to 1000.
+            
+        Note:
+            These attributes should not be changed after initialization:
+            - possible_agents
+            - action_spaces
+            - observation_spaces
+        &#34;&#34;&#34;
+        self._ns = &#34;&#34; if ns is None or ns == &#34;&#34; else ns + &#34;/&#34;
+        self._is_train_mode = rospy.get_param(&#34;/train_mode&#34;)
+        self.metadata = {&#34;render.modes&#34;: [&#34;human&#34;], &#34;name&#34;: &#34;rps_v2&#34;}
+
+        agent_list = agent_list_fn(num_agents, ns=ns)
+
+        self.agents = []
+        self.possible_agents = [a._robot_sim_ns for a in agent_list]
+        self.agent_name_mapping = dict(
+            zip(self.possible_agents, list(range(len(self.possible_agents))))
+        )
+        self.agent_object_mapping = dict(zip(self.possible_agents, agent_list))
+        self._robot_sim_ns = [a._robot_sim_ns for a in agent_list]
+        self.terminal_observation = {}
+
+        self._validate_agent_list()
+
+        # task manager
+        self.task_manager = get_MARL_task(
+            ns=ns,
+            mode=task_mode,
+            robot_names=self._robot_sim_ns,
+            PATHS=PATHS,
+        )
+
+        # service clients
+        if self._is_train_mode:
+            self._service_name_step = f&#34;{self._ns}step_world&#34;
+            self._sim_step_client = rospy.ServiceProxy(
+                self._service_name_step, StepWorld
+            )
+
+        self._max_num_moves = max_num_moves_per_eps
+
+    def observation_space(self, agent: str) -&gt; spaces.Box:
+        &#34;&#34;&#34;Returns specific agents&#39; observation space.
+
+        Args:
+            agent (str): Agent name as given in ``self.possible_agents``.
+
+        Returns:
+            spaces.Box: Observation space of type _gym.spaces_.
+        &#34;&#34;&#34;
+        return self.agent_object_mapping[agent].observation_space
+
+    def action_space(self, agent: str) -&gt; spaces.Box:
+        &#34;&#34;&#34;Returns specific agents&#39; action space.
+
+        Args:
+            agent (str): Agent name as given in ``self.possible_agents``.
+
+        Returns:
+            spaces.Box: Action space of type _gym.spaces_.
+        &#34;&#34;&#34;
+        return self.agent_object_mapping[agent].action_space
+
+    def _validate_agent_list(self) -&gt; None:
+        &#34;&#34;&#34;Validates the agent list.
+
+        Description:
+            Checks if all agents are named differently. That means each robot adresses its own namespace.
+        &#34;&#34;&#34;
+        assert len(self.possible_agents) == len(
+            set(self.possible_agents)
+        ), &#34;Robot names and thus their namespaces, have to be unique!&#34;
+
+    def reset(self) -&gt; Dict[str, np.ndarray]:
+        &#34;&#34;&#34;Resets the environment and returns the new set of observations (keyed by the agent name)
+
+        Description:
+            This method is called when all agents reach an end criterion. End criterions are: exceeding the \
+            max number of steps per episode, crash or reaching the end criterion.
+            The scene is then reseted.
+            
+        Returns:
+            Dict[str, np.ndarray]: Observations dictionary in {_agent name_: _respective observations_}.
+        &#34;&#34;&#34;
+        self.agents = self.possible_agents[:]
+        self.num_moves = 0
+        self.terminal_observation = {}
+
+        # reset the reward calculator
+        for agent in self.agents:
+            self.agent_object_mapping[agent].reward_calculator.reset()
+
+        # reset the task manager
+        self.task_manager.reset()
+        # step one timestep in the simulation to update the scene
+        if self._is_train_mode:
+            self._sim_step_client()
+
+        # get first observations for the next episode
+        observations = {
+            agent: self.agent_object_mapping[agent].get_observations()[0]
+            for agent in self.agents
+        }
+
+        return observations
+
+    def step(
+        self, actions: Dict[str, np.ndarray]
+    ) -&gt; Tuple[
+        Dict[str, np.ndarray],
+        Dict[str, float],
+        Dict[str, bool],
+        Dict[str, Dict[str, Any]],
+    ]:
+        &#34;&#34;&#34;Simulates one timestep and returns the most recent environment information.
+
+        Description:
+            This function takes in velocity commands and applies those to the simulation.
+            Afterwards, agents&#39; observations are retrieved from the current timestep and \
+            the reward is calculated. \
+            Proceeding with the ``RewardCalculator`` processing the observations and detecting certain events like \
+            if a crash occured, a goal was reached. Those informations are returned in the &#39;*reward\_info*&#39; \
+            which itself is a dictionary. \
+            Eventually, dictionaries containing every agents&#39; observations, rewards, done flags and \
+            episode information is returned.
+
+        Args:
+            actions (Dict[str, np.ndarray]): Actions dictionary in {_agent name_: _respective observations_}.
+
+        Returns:
+            Tuple[ Dict[str, np.ndarray], Dict[str, float], Dict[str, bool], Dict[str, Dict[str, Any]], ]: Observations, \
+                rewards, done flags and episode informations dictionary.
+        
+        Note:
+            Done reasons are mapped as follows: __0__ - episode length exceeded, __1__ - agent crashed, \
+                __2__ - agent reached its goal.
+        &#34;&#34;&#34;
+        # If a user passes in actions with no agents, then just return empty observations, etc.
+        if not actions:
+            self.agents = []
+            return {}, {}, {}, {}
+
+        # actions
+        for agent in self.possible_agents:
+            if agent in actions:
+                self.agent_object_mapping[agent].publish_action(actions[agent])
+            else:
+                noop = np.zeros(shape=self.action_space(agent).shape)
+                self.agent_object_mapping[agent].publish_action(noop)
+
+        # fast-forward simulation
+        self.call_service_takeSimStep()
+        self.num_moves += 1
+
+        merged_obs, rewards, reward_infos = {}, {}, {}
+
+        for agent in actions:
+            # observations
+            merged, _dict = self.agent_object_mapping[agent].get_observations()
+            merged_obs[agent] = merged
+
+            # rewards and infos
+            reward, reward_info = self.agent_object_mapping[agent].get_reward(
+                action=actions[agent], obs_dict=_dict
+            )
+            rewards[agent], reward_infos[agent] = reward, reward_info
+
+        # dones &amp; infos
+        dones, infos = self._get_dones(reward_infos), self._get_infos(
+            reward_infos
+        )
+
+        # remove done agents from the active agents list
+        self.agents = [agent for agent in self.agents if not dones[agent]]
+
+        for agent in self.possible_agents:
+            # agent is done in this episode
+            if agent in dones and dones[agent]:
+                self.terminal_observation[agent] = merged_obs[agent]
+                infos[agent][&#34;terminal_observation&#34;] = merged_obs[agent]
+            # agent is done since atleast last episode
+            elif agent not in self.agents:
+                if agent not in infos:
+                    infos[agent] = {}
+                infos[agent][
+                    &#34;terminal_observation&#34;
+                ] = self.terminal_observation[agent]
+
+        return merged_obs, rewards, dones, infos
+
+    @property
+    def max_num_agents(self):
+        return len(self.agents)
+
+    def call_service_takeSimStep(self, t: float = None):
+        &#34;&#34;&#34;Fast-forwards the simulation.
+
+        Description:
+            Simulates the Flatland simulation for a certain amount of seconds.
+            
+        Args:
+            t (float, optional): Time in seconds. When ``t`` is None, time is forwarded by ``step_size`` s \
+                (ROS parameter). Defaults to None.
+        &#34;&#34;&#34;
+        request = StepWorldRequest() if t is None else StepWorldRequest(t)
+
+        try:
+            response = self._sim_step_client(request)
+            rospy.logdebug(&#34;step service=&#34;, response)
+        except rospy.ServiceException as e:
+            rospy.logdebug(&#34;step Service call failed: %s&#34; % e)
+
+    def _get_dones(
+        self, reward_infos: Dict[str, Dict[str, Any]]
+    ) -&gt; Dict[str, bool]:
+        &#34;&#34;&#34;Extracts end flags from the reward information dictionary.
+
+        Args:
+            reward_infos (Dict[str, Dict[str, Any]]): Episode information from the ``RewardCalculator`` in \
+                {_agent name_: _reward infos_}.
+
+        Returns:
+            Dict[str, bool]: Dones dictionary in {_agent name_: _done flag_}
+            
+        Note:
+            Relevant dictionary keys are: &#34;is_done&#34;, &#34;is_success&#34;, &#34;done_reason&#34;
+        &#34;&#34;&#34;
+        return (
+            {agent: reward_infos[agent][&#34;is_done&#34;] for agent in self.agents}
+            if self.num_moves &lt; self._max_num_moves
+            else {agent: True for agent in self.agents}
+        )
+
+    def _get_infos(
+        self, reward_infos: Dict[str, Dict[str, Any]]
+    ) -&gt; Dict[str, Dict[str, Any]]:
+        &#34;&#34;&#34;Extracts the current episode information from the reward information dictionary.
+
+        Args:
+            reward_infos (Dict[str, Dict[str, Any]]): Episode information from the ``RewardCalculator`` in \
+                {_agent name_: _reward infos_}.
+
+        Returns:
+            Dict[str, Dict[str, Any]]: Info dictionary in {_agent name_: _done flag_}
+            
+        Note:
+            Relevant dictionary keys are: &#34;is_done&#34;, &#34;is_success&#34;, &#34;done_reason&#34;
+        &#34;&#34;&#34;
+        infos = {agent: {} for agent in self.agents}
+        for agent in self.agents:
+            if reward_infos[agent][&#34;is_done&#34;]:
+                infos[agent] = reward_infos[agent]
+            elif self.num_moves &gt;= self._max_num_moves:
+                infos[agent] = {
+                    &#34;done_reason&#34;: 0,
+                    &#34;is_success&#34;: 0,
+                }
+        return infos</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pettingzoo.utils.env.ParallelEnv</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.max_num_agents"><code class="name">var <span class="ident">max_num_agents</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def max_num_agents(self):
+    return len(self.agents)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.action_space"><code class="name flex">
+<span>def <span class="ident">action_space</span></span>(<span>self, agent: str) ‑> gym.spaces.box.Box</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns specific agents' action space.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>agent</code></strong> :&ensp;<code>str</code></dt>
+<dd>Agent name as given in <code>self.possible_agents</code>.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>spaces.Box</code></dt>
+<dd>Action space of type <em>gym.spaces</em>.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def action_space(self, agent: str) -&gt; spaces.Box:
+    &#34;&#34;&#34;Returns specific agents&#39; action space.
+
+    Args:
+        agent (str): Agent name as given in ``self.possible_agents``.
+
+    Returns:
+        spaces.Box: Action space of type _gym.spaces_.
+    &#34;&#34;&#34;
+    return self.agent_object_mapping[agent].action_space</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.call_service_takeSimStep"><code class="name flex">
+<span>def <span class="ident">call_service_takeSimStep</span></span>(<span>self, t: float = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fast-forwards the simulation.</p>
+<h2 id="description">Description</h2>
+<p>Simulates the Flatland simulation for a certain amount of seconds.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>t</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Time in seconds. When <code>t</code> is None, time is forwarded by <code>step_size</code> s
+(ROS parameter). Defaults to None.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def call_service_takeSimStep(self, t: float = None):
+    &#34;&#34;&#34;Fast-forwards the simulation.
+
+    Description:
+        Simulates the Flatland simulation for a certain amount of seconds.
+        
+    Args:
+        t (float, optional): Time in seconds. When ``t`` is None, time is forwarded by ``step_size`` s \
+            (ROS parameter). Defaults to None.
+    &#34;&#34;&#34;
+    request = StepWorldRequest() if t is None else StepWorldRequest(t)
+
+    try:
+        response = self._sim_step_client(request)
+        rospy.logdebug(&#34;step service=&#34;, response)
+    except rospy.ServiceException as e:
+        rospy.logdebug(&#34;step Service call failed: %s&#34; % e)</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.observation_space"><code class="name flex">
+<span>def <span class="ident">observation_space</span></span>(<span>self, agent: str) ‑> gym.spaces.box.Box</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns specific agents' observation space.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>agent</code></strong> :&ensp;<code>str</code></dt>
+<dd>Agent name as given in <code>self.possible_agents</code>.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>spaces.Box</code></dt>
+<dd>Observation space of type <em>gym.spaces</em>.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def observation_space(self, agent: str) -&gt; spaces.Box:
+    &#34;&#34;&#34;Returns specific agents&#39; observation space.
+
+    Args:
+        agent (str): Agent name as given in ``self.possible_agents``.
+
+    Returns:
+        spaces.Box: Observation space of type _gym.spaces_.
+    &#34;&#34;&#34;
+    return self.agent_object_mapping[agent].observation_space</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self) ‑> Dict[str, numpy.ndarray]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the environment and returns the new set of observations (keyed by the agent name)</p>
+<h2 id="description">Description</h2>
+<p>This method is called when all agents reach an end criterion. End criterions are: exceeding the
+max number of steps per episode, crash or reaching the end criterion.
+The scene is then reseted.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, np.ndarray]</code></dt>
+<dd>Observations dictionary in {<em>agent name</em>: <em>respective observations</em>}.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self) -&gt; Dict[str, np.ndarray]:
+    &#34;&#34;&#34;Resets the environment and returns the new set of observations (keyed by the agent name)
+
+    Description:
+        This method is called when all agents reach an end criterion. End criterions are: exceeding the \
+        max number of steps per episode, crash or reaching the end criterion.
+        The scene is then reseted.
+        
+    Returns:
+        Dict[str, np.ndarray]: Observations dictionary in {_agent name_: _respective observations_}.
+    &#34;&#34;&#34;
+    self.agents = self.possible_agents[:]
+    self.num_moves = 0
+    self.terminal_observation = {}
+
+    # reset the reward calculator
+    for agent in self.agents:
+        self.agent_object_mapping[agent].reward_calculator.reset()
+
+    # reset the task manager
+    self.task_manager.reset()
+    # step one timestep in the simulation to update the scene
+    if self._is_train_mode:
+        self._sim_step_client()
+
+    # get first observations for the next episode
+    observations = {
+        agent: self.agent_object_mapping[agent].get_observations()[0]
+        for agent in self.agents
+    }
+
+    return observations</code></pre>
+</details>
+</dd>
+<dt id="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self, actions: Dict[str, numpy.ndarray]) ‑> Tuple[Dict[str, numpy.ndarray], Dict[str, float], Dict[str, bool], Dict[str, Dict[str, Any]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Simulates one timestep and returns the most recent environment information.</p>
+<h2 id="description">Description</h2>
+<p>This function takes in velocity commands and applies those to the simulation.
+Afterwards, agents' observations are retrieved from the current timestep and
+the reward is calculated.
+Proceeding with the <code>RewardCalculator</code> processing the observations and detecting certain events like
+if a crash occured, a goal was reached. Those informations are returned in the '<em>reward_info</em>'
+which itself is a dictionary.
+Eventually, dictionaries containing every agents' observations, rewards, done flags and
+episode information is returned.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>actions</code></strong> :&ensp;<code>Dict[str, np.ndarray]</code></dt>
+<dd>Actions dictionary in {<em>agent name</em>: <em>respective observations</em>}.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[ Dict[str, np.ndarray], Dict[str, float], Dict[str, bool], Dict[str, Dict[str, Any]], ]</code></dt>
+<dd>Observations,
+rewards, done flags and episode informations dictionary.</dd>
+</dl>
+<h2 id="note">Note</h2>
+<p>Done reasons are mapped as follows: <strong>0</strong> - episode length exceeded, <strong>1</strong> - agent crashed,
+<strong>2</strong> - agent reached its goal.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(
+    self, actions: Dict[str, np.ndarray]
+) -&gt; Tuple[
+    Dict[str, np.ndarray],
+    Dict[str, float],
+    Dict[str, bool],
+    Dict[str, Dict[str, Any]],
+]:
+    &#34;&#34;&#34;Simulates one timestep and returns the most recent environment information.
+
+    Description:
+        This function takes in velocity commands and applies those to the simulation.
+        Afterwards, agents&#39; observations are retrieved from the current timestep and \
+        the reward is calculated. \
+        Proceeding with the ``RewardCalculator`` processing the observations and detecting certain events like \
+        if a crash occured, a goal was reached. Those informations are returned in the &#39;*reward\_info*&#39; \
+        which itself is a dictionary. \
+        Eventually, dictionaries containing every agents&#39; observations, rewards, done flags and \
+        episode information is returned.
+
+    Args:
+        actions (Dict[str, np.ndarray]): Actions dictionary in {_agent name_: _respective observations_}.
+
+    Returns:
+        Tuple[ Dict[str, np.ndarray], Dict[str, float], Dict[str, bool], Dict[str, Dict[str, Any]], ]: Observations, \
+            rewards, done flags and episode informations dictionary.
+    
+    Note:
+        Done reasons are mapped as follows: __0__ - episode length exceeded, __1__ - agent crashed, \
+            __2__ - agent reached its goal.
+    &#34;&#34;&#34;
+    # If a user passes in actions with no agents, then just return empty observations, etc.
+    if not actions:
+        self.agents = []
+        return {}, {}, {}, {}
+
+    # actions
+    for agent in self.possible_agents:
+        if agent in actions:
+            self.agent_object_mapping[agent].publish_action(actions[agent])
+        else:
+            noop = np.zeros(shape=self.action_space(agent).shape)
+            self.agent_object_mapping[agent].publish_action(noop)
+
+    # fast-forward simulation
+    self.call_service_takeSimStep()
+    self.num_moves += 1
+
+    merged_obs, rewards, reward_infos = {}, {}, {}
+
+    for agent in actions:
+        # observations
+        merged, _dict = self.agent_object_mapping[agent].get_observations()
+        merged_obs[agent] = merged
+
+        # rewards and infos
+        reward, reward_info = self.agent_object_mapping[agent].get_reward(
+            action=actions[agent], obs_dict=_dict
+        )
+        rewards[agent], reward_infos[agent] = reward, reward_info
+
+    # dones &amp; infos
+    dones, infos = self._get_dones(reward_infos), self._get_infos(
+        reward_infos
+    )
+
+    # remove done agents from the active agents list
+    self.agents = [agent for agent in self.agents if not dones[agent]]
+
+    for agent in self.possible_agents:
+        # agent is done in this episode
+        if agent in dones and dones[agent]:
+            self.terminal_observation[agent] = merged_obs[agent]
+            infos[agent][&#34;terminal_observation&#34;] = merged_obs[agent]
+        # agent is done since atleast last episode
+        elif agent not in self.agents:
+            if agent not in infos:
+                infos[agent] = {}
+            infos[agent][
+                &#34;terminal_observation&#34;
+            ] = self.terminal_observation[agent]
+
+    return merged_obs, rewards, dones, infos</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="rl_agent.envs" href="index.html">rl_agent.envs</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="rl_agent.envs.pettingzoo_env.env_fn" href="#rl_agent.envs.pettingzoo_env.env_fn">env_fn</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv">FlatlandPettingZooEnv</a></code></h4>
+<ul class="">
+<li><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.action_space" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.action_space">action_space</a></code></li>
+<li><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.call_service_takeSimStep" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.call_service_takeSimStep">call_service_takeSimStep</a></code></li>
+<li><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.max_num_agents" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.max_num_agents">max_num_agents</a></code></li>
+<li><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.observation_space" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.observation_space">observation_space</a></code></li>
+<li><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.reset" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.reset">reset</a></code></li>
+<li><code><a title="rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.step" href="#rl_agent.envs.pettingzoo_env.FlatlandPettingZooEnv.step">step</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

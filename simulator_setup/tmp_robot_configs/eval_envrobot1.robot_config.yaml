@@ -1,0 +1,53 @@
+bodies:
+- color:
+  - 0.2
+  - 0.8
+  - 0.2
+  - 1.0
+  footprints:
+  - center:
+    - 0.0
+    - 0.0
+    collision: true
+    density: 1
+    friction: 0.1
+    layers:
+    - all
+    radius: 0.3
+    restitution: 0
+    sensor: false
+    type: circle
+  name: robot1_base_footprint
+  pose:
+  - 0
+  - 0
+  - 0
+  type: dynamic
+plugins:
+- body: robot1_base_footprint
+  name: diff_drive
+  odom_frame_id: robot1_odom
+  odom_pub: robot1/odom
+  pub_rate: 10
+  twist_sub: robot1/cmd_vel
+  type: DiffDrive
+- angle:
+    increment: 0.017453292
+    max: 4.694936014
+    min: -1.5707963267948966
+  body: robot1_base_footprint
+  broadcast_tf: true
+  frame: robot1_laser_link
+  name: static_laser
+  noise_std_dev: 0.0
+  origin:
+  - 0.0
+  - 0.0
+  - 0.0
+  range: 3.5
+  topic: robot1/scan
+  type: Laser
+  update_rate: 10
+- name: tf_publisher
+  publish_tf_world: false
+  type: ModelTfPublisher
