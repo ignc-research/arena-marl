@@ -11,7 +11,7 @@ In order to use the install script you need to have Python >=3.8, [Poetry](https
  Navigate to the directory, where you want your code to reside and execute our install script which sets everything up:
 
 ```
-. <(curl -sSL https://raw.githubusercontent.com/wittenator/arena-rosnav/MARL_noetic/install.sh)
+. <(curl -sSL https://raw.githubusercontent.com/ignc-research/arena-marl/main/install.sh)
 ```
 
 
