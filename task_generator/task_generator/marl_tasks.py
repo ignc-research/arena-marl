@@ -69,16 +69,18 @@ class RandomMARLTask(ABSMARLTask):
                         None
                     ] * self._num_robots
                     for i, manager in enumerate(self.robot_manager):
-                        start_pos, goal_pos = manager.set_start_pos_goal_pos()
+                        start_pos, goal_pos = manager.set_start_pos_goal_pos(
+                            forbidden_zones=starts
+                        )
                         starts[i] = (
                             start_pos.x,
                             start_pos.y,
-                            manager.ROBOT_RADIUS,
+                            manager.ROBOT_RADIUS * 1.5,
                         )
                         goals[i] = (
                             goal_pos.x,
                             goal_pos.y,
-                            manager.ROBOT_RADIUS,
+                            manager.ROBOT_RADIUS * 1.5,
                         )
                     self.obstacles_manager.reset_pos_obstacles_random(
                         forbidden_zones=starts + goals

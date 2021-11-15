@@ -201,7 +201,7 @@ class RobotManager:
     def set_start_pos_random(self):
         start_pos = Pose2D()
         start_pos.x, start_pos, start_pos.theta = get_random_pos_on_map(
-            self._free_space_indices, self.map, self.ROBOT_RADIUS
+            self._free_space_indices, self.map, self.ROBOT_RADIUS * 2
         )
         self.move_robot(start_pos)
 
@@ -210,6 +210,7 @@ class RobotManager:
         start_pos: Union[Pose2D, None] = None,
         goal_pos: Union[Pose2D, None] = None,
         min_dist=1,
+        forbidden_zones: Union[list, None] = None,
     ):
         """Set up start position and the goal postion. Path validation checking will be conducted. If it failed, an
         exception will be raised.
@@ -218,6 +219,7 @@ class RobotManager:
             start_pos (Union[Pose2D,None], optional): start position. if None, it will be set randomly. Defaults to None.
             goal_pos (Union[Pose2D,None], optional): [description]. if None, it will be set randomly .Defaults to None.
             min_dist (float): minimum distance between start_pos and goal_pos
+            forbidden_zones (list): a list of tuples with the format (x,y,r), where the the robot should not be reset.
         Exception:
             Exception("can not generate a path with the given start position and the goal position of the robot")
         """
@@ -243,7 +245,10 @@ class RobotManager:
                     start_pos_.y,
                     start_pos_.theta,
                 ) = get_random_pos_on_map(
-                    self._free_space_indices, self.map, self.ROBOT_RADIUS * 2
+                    self._free_space_indices,
+                    self.map,
+                    self.ROBOT_RADIUS * 2,
+                    forbidden_zones=forbidden_zones,
                 )
             else:
                 start_pos_ = start_pos

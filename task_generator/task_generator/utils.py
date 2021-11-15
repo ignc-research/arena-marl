@@ -17,7 +17,12 @@ def generate_freespace_indices(map_: OccupancyGrid) -> tuple:
     return indices_y_x
 
 
-def get_random_pos_on_map(free_space_indices, map_: OccupancyGrid, safe_dist: float, forbidden_zones: list = None):
+def get_random_pos_on_map(
+    free_space_indices,
+    map_: OccupancyGrid,
+    safe_dist: float,
+    forbidden_zones: list = None,
+):
     """
     Args:
         indices_y_x(tuple): a 2 elementary tuple stores the indices of the non-occupied cells, the first element is the y-axis indices,
@@ -30,26 +35,37 @@ def get_random_pos_on_map(free_space_indices, map_: OccupancyGrid, safe_dist: fl
 
     def is_pos_valid(x_in_meters, y_in_meters):
         for forbidden_zone in forbidden_zones:
-            if (x_in_meters-forbidden_zone[0])**2+(y_in_meters-forbidden_zone[1])**2 < (forbidden_zone[2]+safe_dist)**2:
+            if (
+                forbidden_zone
+                and (x_in_meters - forbidden_zone[0]) ** 2
+                + (y_in_meters - forbidden_zone[1]) ** 2
+                < (forbidden_zone[2] + safe_dist) ** 2
+            ):
                 return False
 
         # in pixel
         cell_radius = int(safe_dist / map_.info.resolution)
-        x_index = int((x_in_meters - map_.info.origin.position.x) // map_.info.resolution)
-        y_index = int((y_in_meters - map_.info.origin.position.y) // map_.info.resolution)
+        x_index = int(
+            (x_in_meters - map_.info.origin.position.x) // map_.info.resolution
+        )
+        y_index = int(
+            (y_in_meters - map_.info.origin.position.y) // map_.info.resolution
+        )
 
         # check occupancy around (x_index,y_index) with cell_radius
         # TODO use numpy for checking
-        for i in range(x_index - cell_radius, x_index + cell_radius, 1):
-            for j in range(y_index - cell_radius, y_index + cell_radius, 1):
+        for i in range(x_index - cell_radius, x_index + cell_radius):
+            for j in range(y_index - cell_radius, y_index + cell_radius):
                 index = j * map_.info.width + i
                 if index >= len(map_.data):
                     return False
                 try:
                     value = map_.data[index]
                 except IndexError:
-                    print("IndexError: index: %d, map_length: %d" %
-                          (index, len(map_.data)))
+                    print(
+                        "IndexError: index: %d, map_length: %d"
+                        % (index, len(map_.data))
+                    )
                     return False
                 if value != 0:
 
@@ -57,7 +73,8 @@ def get_random_pos_on_map(free_space_indices, map_: OccupancyGrid, safe_dist: fl
         return True
 
     assert len(free_space_indices) == 2 and len(free_space_indices[0]) == len(
-        free_space_indices[1]), "free_space_indices is not correctly setup"
+        free_space_indices[1]
+    ), "free_space_indices is not correctly setup"
     if forbidden_zones is None:
         forbidden_zones = []
 
@@ -66,18 +83,26 @@ def get_random_pos_on_map(free_space_indices, map_: OccupancyGrid, safe_dist: fl
     n_check_failed = 0
     x_in_meters, y_in_meters = None, None
     while not pos_valid:
-        idx = random.randint(0, n_freespace_cells-1)
+        idx = random.randint(0, n_freespace_cells - 1)
         # in cells
-        y_in_cells, x_in_cells = free_space_indices[0][idx], free_space_indices[1][idx]
+        y_in_cells, x_in_cells = (
+            free_space_indices[0][idx],
+            free_space_indices[1][idx],
+        )
         # convert x, y in meters
-        y_in_meters = y_in_cells * map_.info.resolution + map_.info.origin.position.y
-        x_in_meters = x_in_cells * map_.info.resolution + map_.info.origin.position.x
+        y_in_meters = (
+            y_in_cells * map_.info.resolution + map_.info.origin.position.y
+        )
+        x_in_meters = (
+            x_in_cells * map_.info.resolution + map_.info.origin.position.x
+        )
         pos_valid = is_pos_valid(x_in_meters, y_in_meters)
         if not pos_valid:
             n_check_failed += 1
             if n_check_failed > 100:
                 raise Exception(
-                    "cann't find any no-occupied space please check the map information")
+                    "cann't find any no-occupied space please check the map information"
+                )
         # in radius
     theta = random.uniform(-math.pi, math.pi)
 

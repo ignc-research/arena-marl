@@ -28,6 +28,8 @@ PettingZoo = "1.13.1"
 SuperSuit = "^3.3.0"
 stable-baselines3 = {git = "https://github.com/ignc-research/stable-baselines3", rev = "marl"}
 tensorboard = "^2.7.0"
+notebook = "^6.4.5"
+jupyter = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pdoc3 = "^0.10.0"
